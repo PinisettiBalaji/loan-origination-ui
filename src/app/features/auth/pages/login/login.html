@@ -1,0 +1,64 @@
+<div class="login-container">
+
+    <mat-card>
+
+        <h2>Loan Origination System</h2>
+
+        <form [formGroup]="loginForm">
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Email</mat-label>
+
+                <input
+                    matInput
+                    formControlName="email">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Password</mat-label>
+
+                <input
+                    matInput
+                    type="password"
+                    formControlName="password">
+
+            </mat-form-field>
+
+            @if(errorMessage()){
+
+            <p class="error">
+
+                {{errorMessage()}}
+
+            </p>
+
+            }
+
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="login()"
+                [disabled]="loading()">
+
+                Login
+
+            </button>
+
+            @if(loading()){
+
+            <div class="spinner">
+
+                <mat-spinner diameter="35"></mat-spinner>
+
+            </div>
+
+            }
+
+        </form>
+
+    </mat-card>
+
+</div>
